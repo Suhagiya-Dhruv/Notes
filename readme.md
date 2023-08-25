@@ -1,20 +1,20 @@
 ## CSS Selector
 ---
-- element selector
-- class selector
-- id selector
-- CSS Grouping Selector
-- universal selector
-- multiple class selector
-- attribute selector 
+- Element selector
+- Class selector
+- Id selector
+- Grouping selector
+- Universal selector
+- Multiple class selector
+- Attribute selector 
 
 #### CSS Combinators
 https://www.w3schools.com/css/css_combinators.asp
 
-- descendant combinator
-- child combinator
-- Adjacent Sibling Selector
-- General Sibling Selector
+- Descendant combinator
+- Child combinator
+- Adjacent sibling selector
+- General sibling selector
 
 
 #### Pseudo-class Selector
