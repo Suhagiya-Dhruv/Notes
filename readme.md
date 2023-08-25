@@ -4,17 +4,17 @@
 - Class selector
 - Id selector
 - Grouping selector
-- Universal selector
-- Multiple class selector
-- Attribute selector 
+- Universal selector 
+- Multiple class selector .c1.c2
+- Attribute selector input[value="Select me"]
 
 #### CSS Combinators
 https://www.w3schools.com/css/css_combinators.asp
 
-- Descendant combinator
-- Child combinator
-- Adjacent sibling selector
-- General sibling selector
+- Descendant combinator selector >
+- Child combinator selector .c1 .c2
+- Adjacent sibling selector +
+- General sibling selector ~
 
 
 #### Pseudo-class Selector
