@@ -1,22 +1,31 @@
-## Overflow
+## Inheritance
 
-- visible
-- hidden
-- scroll
-- auto
+- color
+- font-family
+- font-size
+- font-weight
+- font-style
+- line-height
 
-## Display
+some properties, like background-color, border, and margin, are not inherited.
 
-- inline
-- block
-- inline-block
+## Units
 
+**Absolute**
 
-| styles     | Inline | Block | Inline-Block |
-| ---------- | ------ | ----- | ------------ |
-| width      | false  | true  | true         |
-| height     | false  | true  | true         |
-| v. margin  | false  | true  | true         |
-| h. margin  | true   | true  | true         |
-| v. padding | true   | true  | true         |
-| h. padding | true   | true  | true         |
+These units are absolute and do not change with the display size or zoom level. 
+
+- px
+- cm
+- mm
+- inch
+
+**Relative**
+
+These units are relative and it is change with the display size or zoom level and depend on parent.
+
+- rem
+- em
+- vh
+- vw
+- %
