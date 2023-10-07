@@ -43,7 +43,7 @@ class Operators {
         // =, +=, -=, *=, /=, %=
 
         // int a = 10;
-        // a -= 5; // a = a+5; => Arithmetic -> assign
+        // a -= 5; // a = a-5; => Arithmetic -> assign
         // System.out.println(a);
 
         // if (a == 10) {
