@@ -8,9 +8,7 @@
 - Number
 - String
   1. How can we create
-     > '' - Single quotes
-     > "" - Double quotes
-     > `` - template literals (backtick character)
+     > '' - Single quotes | "" - Double quotes | `` - template literals (backtick character)
   2. Basic property of String
      - split
      - charAt
