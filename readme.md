@@ -1,7 +1,7 @@
 ## Data type in JS
 
-1. Primitive data types (Pervios Lecture)
-2. Non-Primitive data types
+1. Primitive data types (Pervious Lecture)
+2. Non-primitive data types
 
 - Object
    1. How to create
