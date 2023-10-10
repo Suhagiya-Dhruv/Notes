@@ -8,10 +8,8 @@
    2. How to read
       - dot notation
       - bracket notation
-      - traverse over objects
    3. How to update
    4. How to delete
-   5. Nested Object
 - Array
   1. How to create
   2. Basic property of Array
