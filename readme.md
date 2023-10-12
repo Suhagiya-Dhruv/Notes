@@ -1,24 +1,20 @@
-## How execute js file
-
-1. Nested Object
-2. Travels Object
-3. Function
-4. var
-   - declaration (**✓**)
-   - assignment/initialzation (**✓**)
-   - re intialization (**✓**)
-   - re declaration (**✓**)
-5. let (ES6)
-   - declaration (**✓**)
-   - assignment/initialzation (**✓**)
-   - re intialization (**✓**)
-   - re declaration (**✕**)
-6. const (ES6)
-   - declaration (**✕**)
-   - assignment/initialzation (**✓**)
-   - re intialization (**✕**)
-   - re declaration (**✕**)
+## How execute javascript
 
 Why Javascirpt => https://www.ample.co/blog/javascript-history
+
+1. Function
+   - Normal Function
+   - Function expression
+
+2. What is Call Stack
+3. Execution Context
+   - global scope
+   - local scope
+
+4. Phase
+   - Memory creation phase
+   - Code execution phase
+
+5. Hoisting
 
 
