@@ -1,46 +1,21 @@
-## Scoping
+1. use strict mode
+   - Strict mode is a feature in JavaScript that helps catch common coding mistakes and "unsafe" actions. It enforces stricter parsing and error handling.
+   - You can enable strict mode by adding `use strict` at the beginning of your script or function.
+2. Chaining
+   - Chaining is a design pattern that allows you to call methods on an object one after the other, in a single line of code.
+   - It's often used with methods that return the object itself, making it easy to perform multiple operations in a sequence.
+   ```javascirpt
+   obj.method1().method2().method3();
+   ```
+3. Inheritance
+   - Inheritance is a concept where one object can inherit properties and methods from another object. In JavaScript, this is typically done using prototypes.
+   - It's a way to create a new object (subclass) based on an existing object (superclass).
+4. Constructor function
+   - A constructor function is a way to create objects in JavaScript. It is used to initialize objects with properties and methods.
+   - Public properties are created within the constructor function using the this keyword. These properties are accessible from outside the object.
+   - The prototype is an object that is shared among all instances of a constructor function. It is used to define methods that can be shared across all objects created with the constructor.
+5. Call, Apply, bind
 
-1. Gloable scope
-   - The global scope is the outermost scope in JavaScript.
-   - Variables declared here are accessible from anywhere in your code.
-   - It's often used for global constants or variables that need to be shared across the entire program.
-2. Function scope
-   - Variables declared inside a function are in the function's scope.
-   - These variables are accessible only within that specific function.
-   - Function scope helps prevent naming conflicts between different parts of your code.
-3. Block scope
-   - Introduced with ES6 using let and const.
-   - Block scope is created within curly braces {} like in conditional statements or loops.
-   - Variables declared with let or const in a block are only accessible within that block.
-   - This helps prevent variable leakage and enhances code clarity.
-
-## this keyword
-
-- `this` is a special keyword in JavaScript that refers to an object, and its value depends on how it's invoked:
-
-- If it's called as a method of the global scope, then this refers to window or global object (depending upon browser)
-
-1. Method Call
-    - When this is used inside a method of an object, it refers to the object that the method is called on.
-    - > For example, myObject.myMethod() will make this point to myObject.
-
-2. Function Call
-    - When this is used within a regular function (not a method), it typically refers to the global object (e.g., window in a browser).
-    - This can lead to unexpected behavior, especially in event handlers or nested functions.
-
-## Arrow function
-
-- Arrow functions are defined using the `=>` syntax.
-
-```javascript
-const add = function (a, b) {
-  return a + b;
-}; // Normal function
-
-const add = (a, b) => a + b; // arrow function
-```
-- They're often used for simple, one-liner functions, as they allow you to omit the return keyword for single expressions.
-
-**`this` keyword in arrow funciton**
-- Arrow functions do not have their own this context. Instead, they inherit this from the surrounding code (usually the parent function or the global scope).
-- This can make them useful for preserving the value of this in situations where it would change in a regular function.
+   - These are methods available on JavaScript functions that allow you to control how a function is called
+   - `call` and `apply` let you invoke a function with a specific this value and arguments. The only difference is in how you pass arguments: `call` uses a comma-separated list, while `apply` uses an array.
+   - bind returns a new function with a fixed this value and any predefined arguments. It doesn't execute the function immediately but allows you to execute it later with the fixed context.
