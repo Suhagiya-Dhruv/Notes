@@ -1,7 +1,9 @@
 // Closures
 
 
+
 // Truthy Value vs. Falsy Value
+
 
 
 // == vs ===
