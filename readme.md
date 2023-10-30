@@ -1,88 +1,97 @@
-### 1. Closures
+### 1. `Object`
 
-In JavaScript, a closure is a function that has access to the variables and parameters of its outer (enclosing) function, even after that outer function has completed execution. Closures are a powerful and fundamental concept in JavaScript.
+In JavaScript, `Object.keys()` and `Object.values()` are methods that allow you to extract information from objects. They are commonly used when working with objects and provide different ways of accessing the properties and values within an object.
 
-#### Example:
+1. **`Object.keys(obj)`**:
+   - The `Object.keys()` method returns an array containing the keys (property names) of an object.
+   - This method extracts only the property names and ignores their corresponding values.
+
+   Example:
+   ```javascript
+   const person = { name: 'John', age: 30, city: 'New York' };
+   const keys = Object.keys(person);
+   console.log(keys); // Output: ['name', 'age', 'city']
+   ```
+
+2. **`Object.values(obj)`**:
+   - The `Object.values()` method returns an array containing the values of an object's properties.
+   - This method extracts the values of the properties but doesn't include the property names.
+
+   Example:
+   ```javascript
+   const person = { name: 'John', age: 30, city: 'New York' };
+   const values = Object.values(person);
+   console.log(values); // Output: ['John', 30, 'New York']
+   ```
+
+These methods are helpful when you need to iterate over the properties of an object, perform operations on the property names or values, or convert an object's properties into an array for further processing. They are often used in conjunction with iteration methods like `forEach`, `map`, or `for...of` to process the keys or values of an object.
+
+### 2. `setTimeout` vs `setInterval`
+
+JavaScript provides two functions for scheduling the execution of code after a delay:
+
+- `setTimeout`: Executes a function or a piece of code after a specified delay (in milliseconds) and only once.
+
+- `setInterval`: Repeatedly executes a function or code at a specified interval (in milliseconds) until it is canceled.
+
+#### Examples:
+
+##### Using `setTimeout`:
 
 ```javascript
-function outer() {
-  const outerVar = 'I am from the outer function';
+console.log('Starting...');
+setTimeout(() => {
+  console.log('This message will appear once after 2 seconds.');
+}, 2000);
+```
 
-  function inner() {
-    console.log(outerVar); // Accesses outerVar from the outer function
+##### Using `setInterval`:
+
+```javascript
+let count = 0;
+const intervalId = setInterval(() => {
+  count++;
+  console.log(`This message will appear every second (${count}s).`);
+  if (count === 5) {
+    clearInterval(intervalId); // Stops the interval after 5 seconds.
   }
-
-  return inner;
-}
-
-const innerFn = outer();
-innerFn(); // Logs "I am from the outer function"
+}, 1000);
 ```
 
-### 2. Truthy Value vs. Falsy Value
+### 3. Promises
 
-In JavaScript, values are evaluated as either "truthy" or "falsy" when used in conditions. Understanding these concepts is crucial when writing conditional statements.
+Promises in JavaScript are used to handle asynchronous operations more effectively. They provide a way to work with asynchronous code in a more readable and maintainable manner, allowing you to represent a value that might not be available yet.
 
-- **Truthy Values**: Values that are considered true when evaluated in a Boolean context. Examples include `true`, non-empty strings, numbers other than `0`, objects, arrays, and functions.
-
-- **Falsy Values**: Values that are considered false when evaluated in a Boolean context. Examples include `false`, `0`, `null`, `undefined`, `NaN`, and empty strings.
+A Promise can be in one of three states:
+- **Pending**: Initial state, neither fulfilled nor rejected.
+- **Fulfilled**: The asynchronous operation completed successfully, and the Promise has a result.
+- **Rejected**: The asynchronous operation encountered an error, and the Promise has a reason for failure.
 
 #### Example:
 
 ```javascript
-const truthyValue = 'Hello';
-const falsyValue = 0;
+const fetchData = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const data = 'Async data fetched!';
+      if (data) {
+        resolve(data); // Promise is fulfilled with data.
+      } else {
+        reject('Error: Data not available.'); // Promise is rejected with an error.
+      }
+    }, 2000);
+  });
+};
 
-if (truthyValue) {
-  console.log('Truthy value is true');
-}
-
-if (!falsyValue) {
-  console.log('Falsy value is false');
-}
+fetchData()
+  .then(result => {
+    console.log(result); // "Async data fetched!"
+  })
+  .catch(error => {
+    console.error(error); // "Error: Data not available."
+  });
 ```
 
-### 3. `==` vs. `===`
+Promises are crucial for managing and chaining asynchronous operations, improving code readability, and handling errors in a structured way.
 
-In JavaScript, both `==` (loose equality) and `===` (strict equality) are used to compare values. However, they behave differently:
-
-- `==` checks for equality after performing type coercion, which can lead to unexpected results.
-- `===` checks for strict equality without type coercion.
-
-#### Example:
-
-```javascript
-const num = 5;
-const str = '5';
-
-console.log(num == str);  // true (coerced equality)
-console.log(num === str); // false (strict equality)
-```
-
-### 4. Object Methods: `preventExtensions`, `seal`, and `freeze`
-
-JavaScript provides methods to control the mutability and properties of objects.
-
-- `Object.preventExtensions(obj)`: Prevents the addition of new properties to an object but allows modifying or deleting existing properties.
-
-- `Object.seal(obj)`: Prevents the addition of new properties and makes all existing properties non-configurable. You can still modify existing values.
-
-- `Object.freeze(obj)`: Prevents adding, modifying, or deleting properties. It also makes all properties non-writable and non-configurable.
-
-#### Example:
-
-```javascript
-const person = { name: 'John', age: 30 };
-
-Object.preventExtensions(person);
-person.city = 'New York'; // Won't add 'city' property
-
-Object.seal(person);
-person.city = "New York"; // Won't add 'city' property
-delete person.age; // Won't delete 'age' property
-
-Object.freeze(person);
-person.city = "New York"; // Won't add 'city' property
-person.name = 'Jane'; // Won't change 'name' property
-delete person.age; // Won't delete 'age' property
-```
+Understanding when to use `setTimeout` or `setInterval` and how to work with Promises is essential for dealing with asynchronous programming and managing delays and asynchronous operations effectively in JavaScript.
