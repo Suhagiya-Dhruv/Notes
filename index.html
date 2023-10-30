@@ -3,12 +3,82 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>JS</title>
-
+        <title>DOM</title>
     </head>
+    <style>
+    .h3-class{
+        color:blue;
+    }
+</style>
     <body>
-        <h1>JS 🔥</h1>
+        <h1>DOM Manipulation 1</h1>
+        <!-- <h1>DOM Manipulation 2</h1> -->
+        <!-- <p class="pragraph">Hello pragraph</p>
+        <p id="pragraph">Hello js</p> -->
+
+        <!-- <div id="div">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim,
+                voluptatibus.</p>
+        </div> -->
+
+        <div id="div">
+
+        </div>
+
     </body>
-    <!-- <script src="./1_interval_timeout.js"></script> -->
-    <script src="./2_Promise.js"></script>
+
+    <script>
+        //DOM
+        
+         // getElementById camelCase
+        // snack_case
+
+        // CRUD Opration -> Create, Read, Update, Delete
+
+        // querySelector
+
+
+        // const a = document.querySelector("h1"); // tag
+        // console.log(a);
+
+        // const b = document.querySelectorAll("h1"); // Nodelist array ["","",""]
+
+        // console.log(a);
+
+        // const a = document.querySelector(".pragraph"); // tag
+        // console.log(a);
+
+
+        // const a = document.getElementById("pragraph"); // unique value
+        // console.log(a) // value
+
+        // const b = document.getElementsByClassName("pragraph"); // HTML collation Array [<p class="pragraph">Hello pragraph</p>]
+        // console.log(b[0].innerText) // Hello pragraph
+
+        // const b = document.getElementsByTagName("p"); // value | array
+        // console.log(b[1].innerText)
+
+    //    const c = document.getElementById("div");
+
+       // innerHTML vs innerText vs textContent
+    //    console.log(c.innerHTML)
+    //    console.log(c.innerText)
+    //    console.log(c.textContent)
+
+        // c.innerText = "<h1>This is inner text<h1>" // text
+        // c.innerHTML = "<h1>This is inner text<h1>" // tag
+
+        // console.log(c.innerHTML)
+
+        // c.remove();
+
+    //     const a = document.createElement("h3");
+    //     a.setAttribute("id","h3-id")
+    //     a.setAttribute("class", "h3-class")
+    //     a.innerText = "Hello I'm H3";
+
+    //    const c = document.getElementById("div");
+    //    c.appendChild(a)
+
+    </script>
 </html>
