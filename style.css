@@ -1,0 +1,180 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    /* color: white; */
+}
+
+.link {
+    color: white;
+}
+
+.active {
+    color: green;
+}
+
+.header {
+    position: fixed;
+    top:0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(39, 48, 83);
+    color: aqua;
+    padding: 1rem 0;
+    width: 100vw;
+    z-index: 100;
+}
+
+.logo {
+    margin-right: 5vw;
+    cursor: pointer;
+}
+
+.menu_container {
+    display: flex;
+    margin-left: 5vw;
+    font-size: 1.2rem;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    gap: 1.2vw;
+}
+
+li {
+    list-style-type: none;
+}
+
+.buy_ticket {
+    margin-left: 1vw;
+    padding: 0.8vw 1.2vw;
+    outline: none;
+    border: none;
+    border-radius: 5rem;
+    font-size: 1.2rem;
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+}
+
+.main_section {
+    height: 100vh;
+    background-color: lightslategray;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.heading {
+    text-align: center;
+    margin: 3rem 0 2rem 0;
+    font-size: 1.4rem;
+}
+
+.leadership {
+    text-decoration: underline;
+    color: aqua;
+    padding: 0.2rem;
+}
+
+.conference {
+    color: white;
+}
+
+.time {
+    display: flex;
+}
+
+.time>span {
+    padding: 1rem;
+    border: 1px solid white;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.down_button {}
+
+.down_button>button {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button,
+li {
+    cursor: pointer;
+}
+
+.down_button>button:hover {
+    background-color: aqua;
+    color: white;
+}
+
+.video_box {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.video_box>div {
+    width: 24rem;
+    height: 16rem;
+    border: 1px solid blue;
+}
+
+.box_section {
+    display: flex;
+
+}
+
+.box_section>div {
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid white;
+    border-radius: 50%;
+
+}
+
+.f_box~div {
+    margin-left: -5px;
+}
+
+.image_section {
+    overflow: hidden;
+}
+
+.section {
+    height: 100vh;
+    background-color: antiquewhite;
+}
+
+p {
+    margin: 1rem;
+    padding: 2rem;
+    letter-spacing: 1.2px;
+    font-size: 20px;
+}
+
+.addNew{
+    background-color: red;
+}
