@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Counter</title>
+        <style>
+            .main_div{
+                display: flex;
+                gap: 10px;
+            }
+            .btn{
+                height: 32px;
+                width: 70px;
+                border-radius: 4px;
+                background-color: green;
+                color: white;
+                font-size: 20px;
+                border: none;
+            }
+
+            .zero{
+                background-color: antiquewhite;
+                color: black;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .counter_con{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .reset{
+                margin-top: 10px;
+                font-size: 16px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="counter_con">
+            <h1>Counter App</h1>
+            <div class="main_div">
+                <input type="number" id="number" value="15" />
+                <button class="btn" id="inc_btn">+</button>
+                <div class="btn zero">0</div>
+                <button class="btn" id="dec_btn">-</button>
+                <input type="number" id="number" value="10" />
+
+            </div>
+            <button class="btn reset" id="reset">Reset</button>
+        </div>
+    </body>
+    <script>
+
+        let count = 0;
+
+        const inc_btn = document.getElementById("inc_btn");
+        const dec_btn = document.getElementById("dec_btn");
+        const reset = document.getElementById("reset");
+
+        const zero = document.getElementsByClassName("zero")[0];
+
+        const inputValue = document.getElementById("number");
+
+        console.log(inputValue.value)
+
+        inc_btn.addEventListener("click", function(){ // callback function -> call later
+            count = count+Number(inputValue.value);
+            zero.innerText = count;
+        })
+
+        dec_btn.addEventListener("click", function(){
+            count = count-Number(inputValue.value);
+            // if(count>0){
+            //     zero.innerText = count;
+            // }
+            // if(count<0){
+            //     count = 0;
+            //     zero.innerText = count;
+            // }
+
+            if(count<0){
+                count = 0;
+            }
+            zero.innerText = count;
+        })
+
+        reset.addEventListener("click", function(){
+            count = 0;
+            zero.innerText = count;
+        })
+    </script>
+</html>
