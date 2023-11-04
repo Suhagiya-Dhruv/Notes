@@ -1,52 +1,24 @@
-// const aList = document.getElementById("home-link");
+// const mobileMenu = document.getElementById("mobile_menu");
+// const menuContainer = document.getElementsByClassName("menu_container")[0] // []
 
-// aList.addEventListener("click",changeActivebtn);
-
-// for loop
-// 0 -> 1 -> 2 -> 3 -> 4(false)
-
-// function outer() {
-//     console.log("outerfunction")
-//     changeActivebtn();
-// }
-
-// clouser
-
-// function outer(){
-//     const a = 15;
-//     function inner(){
-//             console.log(a);
+// mobileMenu.addEventListener("click", function () {
+//     if (mobileMenu.innerText == "Open") {
+//         mobileMenu.innerText = "Close"
+//         menuContainer.style.display = "flex"
+//     } else {
+//         mobileMenu.innerText = "Open"
+//         menuContainer.style.display= "none"
 //     }
-//     return inner;
-// }
+// })
 
-// console.log(outer()())
+// window.addEventListener("resize", function(){
+//     if(window.outerWidth > 500){
+//         menuContainer.style.display = "flex"
+//     }
+// })
 
-// callback function -> I will call you later
+const ulMenu = document.getElementById("ul_menu");
 
-// console.log(aList)
-
-// function run(a){
-//     console.log(a);
-// }
-
-// run(["element"])
-
-function changeActivebtn(element) {
-    removeClass();
-    element.classList.add("active")
-}
-
-function removeClass() {
-    for (let i = 0; i < aList.length; i++) {
-        aList[i].classList.remove("active");
-    }
-}
-
-const aList = document.getElementsByClassName("link");// []
-
-for (let i = 0; i < aList.length; i++) {
-    aList[i].addEventListener("click", function outer() {
-        changeActivebtn(aList[i]);
-    })
-}
+ulMenu.addEventListener("click", function (e){
+    console.log(e.target)
+})

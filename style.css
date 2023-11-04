@@ -178,3 +178,29 @@ p {
 .addNew{
     background-color: red;
 }
+
+.mobile_menu{
+    display: none;
+}
+@media screen and (max-width:500px){
+    .menu{
+        flex-direction: column;
+    }
+
+    .menu>li{
+        margin: 1rem 0;
+    }
+    .menu_container{
+        display: none;
+        flex-direction: column;
+        position:absolute;
+        top: 10vh;
+        right:0;
+        width: 100vw;
+        background-color: aquamarine;
+    }
+
+    .mobile_menu{
+        display: block;
+    }
+}
