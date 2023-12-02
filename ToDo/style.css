@@ -1,0 +1,13 @@
+#list {
+    width: 50vw;
+    height: 500px;
+    border: 1px solid blue;
+}
+
+#list>p {
+    border: 1px solid red;
+}
+
+.mark-as-done {
+    text-decoration: line-through;
+}
