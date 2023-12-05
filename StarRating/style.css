@@ -1,0 +1,32 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1{
+    text-align: center;
+}
+
+.star{
+    font-size: 72px;
+    text-align: center;
+    color: gray;
+    display: flex;
+    justify-content: center;
+}
+
+.star>span{
+    cursor: pointer;
+    padding: 0 4px;
+}
+
+.yellow{
+    color:yellow;
+}
+
+.star>span:hover{
+    transition: 0.2s;
+    transform: scale(1.2);
+
+}
