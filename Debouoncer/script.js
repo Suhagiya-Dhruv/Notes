@@ -72,15 +72,55 @@ drop
 
 // debouncing
 
+
+
+
+// function debounce(fn, delay = 1000) { // function is called before 300ms then remove the previuos event
+//     let timeId;
+//     return function (...arg) {
+//         clearTimeout(timeId);
+//         timeId = setTimeout(() => {
+//             fn(...arg);
+//         }, delay)
+//     }
+// }
+
+// clouser
+
 const data = document.getElementById("btn");
+const user = document.getElementById("user-list");
 
-data.addEventListener("click", function () {
-    console.log("account created. user1")
-});
+async function clickHandler() {
+    const data = await fetch(`https://jsonplaceholder.typicode.com/todos`).then(res => res.json()).then(data => data);
+    data.forEach((obj) => {
 
-// java -> andriod studio
+        const li = document.createElement("li");
+        li.innerText = obj.title;
 
-// web development
+        user.appendChild(li)
+    })
+}
 
-// -> javascript -> React
-// -> jQuery
+// const debounceFun = debounce(clickHandler, 300);
+
+data.addEventListener("click", clickHandler);
+
+// debounceFun(); // 0
+// debounceFun();
+// debounceFun(); // 0
+// debounceFun(); // 0
+
+
+// function outer() {
+//     let a = 0;
+//     return function inner() {
+//         a++;
+//         return a;
+//     }
+// }
+
+// const a = outer();
+
+// console.log(a());
+// console.log(a());
+
