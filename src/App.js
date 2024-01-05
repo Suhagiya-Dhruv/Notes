@@ -1,7 +1,9 @@
 import './App.css';
-import Counter from './Counter/counter';
+// import Counter from './Counter/counter';
 // import A from './components/A';
 // import TextField, { PasswordField, NumberField } from './inputCompont';
+
+import Todo from './TODO/todo';
 
 function App() {
 
@@ -22,7 +24,8 @@ function App() {
       <A name="John"/>
       <A name="John"/> */}
       {/* <A name="John" /> */}
-      <Counter />
+      {/* <Counter /> */}
+      <Todo></Todo>
     </div>
   );
 }
