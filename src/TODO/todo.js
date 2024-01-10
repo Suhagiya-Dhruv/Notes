@@ -3,10 +3,28 @@ import React, { useState } from "react";
 const Todo = () => {
 
     const [value, setValue] = useState("");
-    const [arr, setArray] = useState([]);
+    const [arr, setArray] = useState([
+        {
+            id: "1",
+            value: "Item-1",
+            check: false
+        },
+        {
+            id: "2",
+            value: "Item-2",
+            check: false
+        }
+    ]);
 
     const addHander = (event) => {
-        setArray([...arr, value]) // push
+
+        const obj ={
+            id: arr.length,
+            value,
+            check: false
+        }
+
+        setArray([...arr, obj]) // push
         setValue("");
     }
 
@@ -14,9 +32,11 @@ const Todo = () => {
         setValue(event.target.value);
     }
 
-    const editHandler = (item) => {
-        setValue(item)
-        const data = arr.filter(a => a !== item) // [4,56,,454,45]
+    const editHandler = (id) => {
+        const obj = arr.find(item => item.id === id);
+        setValue(obj.value);
+
+        const data = arr.filter(a => a.id !== id) // [4,56,,454,45]
         setArray(data);
     }
 
@@ -24,6 +44,13 @@ const Todo = () => {
         console.log(arr);
         setArray(arr.filter(a => a !== item));
         console.log(arr);
+    }
+
+    const checkboxHandler = (event, id) => {
+        const obj = arr.find(item => item.id === id);
+        obj.check = !obj.check;
+
+        setArray([...arr]);
     }
 
     return (
@@ -34,7 +61,22 @@ const Todo = () => {
             <ul>
                 {arr.map((item, idx) => {
                     return (
-                        <li key={idx}>{item} <button onClick={() => editHandler(item)}>Edit</button> <button onClick={() => deleteItem(item)}>Delete</button></li>
+                        <li key={idx} className={!item.check ? "" : "line"}>
+
+                            {item.value}
+
+                            <input type="checkbox"
+                                onChange={(e) => checkboxHandler(e, item.id)} checked={item.check} />
+
+                            {item.check ?
+                                null
+                                :
+                                <>
+                                    <button onClick={() => editHandler(item.id)}>Edit</button>
+                                    <button onClick={() => deleteItem(item)}>Delete</button>
+                                </>
+                            }
+                        </li>
                     )
                 }
                 )}
