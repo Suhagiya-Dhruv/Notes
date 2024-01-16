@@ -1,9 +1,10 @@
 import './App.css';
+import ECommerce from './E-Commerce/Index';
 // import Counter from './Counter/counter';
 // import A from './components/A';
 // import TextField, { PasswordField, NumberField } from './inputCompont';
 
-import Todo from './TODO/todo';
+// import Todo from './TODO/todo';
 
 function App() {
 
@@ -25,7 +26,8 @@ function App() {
       <A name="John"/> */}
       {/* <A name="John" /> */}
       {/* <Counter /> */}
-      <Todo></Todo>
+      {/* <Todo></Todo> */}
+      <ECommerce />
     </div>
   );
 }
