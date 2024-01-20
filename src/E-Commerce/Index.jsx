@@ -6,23 +6,42 @@ const ECommerce = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        const url = "https://dummyjson.com/products"
-        fetch(url).then(data => data.json()).then(data => setData(data.products)); // get method
+
+        async function run() { // asynchronous function
+
+            const url = "https://dummyjson.com/products"
+
+            const value = await fetch(url);
+            const jsonData = await value.json();
+
+            setData(jsonData.products);
+        }
+
+        run()
+
+        // .then(data => data.json())
+        // .then(data => console.log(data.products))
+        // .catch(err => console.log(err))
+
     }, []);
 
     return (
         <div style={{
-            display:"flex",
-            flexWrap :"wrap",
+            display: "flex",
+            flexWrap: "wrap",
             gap: "1rem",
-            justifyContent:"center"
+            justifyContent: "center"
         }}>
-            {
+            {/* {
                 data.map((obj, ind) => {
                     return <Card data={obj} />
                 })
-            }
+            } */}
 
+            
+            {data.length && // conditional rending
+                <Card data={data[0]}></Card>
+            }
         </div>
     )
 }

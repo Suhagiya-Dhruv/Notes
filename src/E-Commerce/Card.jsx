@@ -6,7 +6,8 @@ import Typography from '@mui/material/Typography';
 
 export default function MediaCard(props) {
 
-    const { title, price, thumbnail } = props.data;
+    console.log(props);
+    const { title, price, thumbnail } = props?.data;
 
     return (
         <Card sx={{ minWidth: 345, maxWidth: 345 }}>
