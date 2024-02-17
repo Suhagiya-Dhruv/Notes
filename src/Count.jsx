@@ -3,10 +3,10 @@ import { useSelector } from 'react-redux'
 
 const Count = () => {
 
-    const {value} = useSelector(state => state.counter)
+    const { name } = useSelector(state => state.counter)
 
     return (
-        <div>{value}</div>
+        <div>{name}</div>
     )
 }
 
