@@ -36,6 +36,7 @@ server.get('/products', (req, res) => {
 
 })
 
+
 server.get('/products/:id', (req, res) => {
 
     const id = Number(req.params.id);
@@ -44,13 +45,50 @@ server.get('/products/:id', (req, res) => {
 
     const response = data.filter(item => item.id === id);
 
-    if(response.length){
+    if (response.length) {
         res.send(response)
-    }else{
+    } else {
         res.send("Data not found")
     }
 })
 
-server.listen(5555, () => {
-    console.log('Server is running on port http://localhost:5555');
+
+server.get('/e1', (req, res) => {
+
+    console.log(req.query)
+
+    const age = req.query.age;
+    const value = req.query.value;
+
+    const data = JSON.parse(fs.readFileSync('empoyerdata.json'));
+
+
+    let response = data;
+    if (value === 'gt') {
+        response = data.filter(item => item.age >= age); //block scope
+    } else if (value === 'lt') {
+        response = data.filter(item => item.age < age);
+    }
+
+    if (response.length) {
+        res.send(response)
+    } else {
+        res.send("Data not found")
+    }
+})
+
+// server.get('/e1/:id/:name',(req, res)=>{
+
+//     console.log(req.params)
+//     res.send("E1 API") 
+// })
+
+// server.get('/e1/:id/:name/:surname',(req, res)=>{
+
+//     console.log(req.params)
+//     res.send("E1 API") 
+// })
+
+server.listen(5556, () => {
+    console.log('Server is running on port http://localhost:5556');
 })
