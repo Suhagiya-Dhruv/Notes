@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const Testing = require('./model');
+const bcrypt = require('bcrypt');
 
 const url = "mongodb://localhost:27017/testing";
 
@@ -35,11 +36,38 @@ server.post("/", (req, res) => {
 
 
 server.post("/create", async (req, res) => { // Error handling
-    console.log(req.body)
-    const data = await Testing.create(req.body)
+
+    try {
+
+        const email = await Testing.findOne({ email: req.body.email });
+
+        if (email) { // null
+            return res.send({
+                data: email,
+                message: "Email already extis..!"
+            })
+        }
+
+        const password = await bcrypt.hash("123456", 10);
+
+        const data = await Testing.create({ ...req.body, password })
+        res.send(data)
+
+    } catch (e) {
+        res.send(e)
+    }
     // data.push(req.body)
-    res.send(data)
 });
+
+
+server.delete("/delete/:id", async (req, res) => {
+
+    const id = req.params.id;
+
+    // const data = await Testing.deleteOne({ email })
+    const data = await Testing.findByIdAndDelete(id)
+    res.send(data);
+})
 
 
 server.listen(5555, () => {
