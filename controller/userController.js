@@ -4,9 +4,17 @@ const bcrypt = require("bcrypt");
 const signup = async (req, res) => {
     try {
 
-        const email = await userModel.findOne({ email: req.body.email });
+        const newEmail = req.body.map(item => item.email); // ["emailId", "emailId"]
 
-        if (email) {
+        const email = await userModel.find({
+            email: {
+                $in: newEmail
+            }
+        }) // query
+
+        console.log(email.length) // []
+
+        if (email.length) {
             return res.send({
                 data: null,
                 message: "Email already extis..!",
@@ -14,9 +22,19 @@ const signup = async (req, res) => {
             })
         }
 
-        const password = await bcrypt.hash("123456", 10);
 
-        const data = await userModel.create({ ...req.body, password })
+        const dataModify = req.body.map(async (value) => {
+            const password = await bcrypt.hash(value.password, 10);
+            return ({
+                ...value,
+                password
+            })
+        })
+
+        const promiseData = Promise.all(dataModify).then(data => data).catch(err => console.error(err));
+
+        const data = await userModel.insertMany(await promiseData)
+
         return res.send({
             data: data,
             message: "User created successfully..!",
@@ -67,8 +85,39 @@ const detelteAll = async (req, res) => {
     }
 }
 
+
+const login = async (req, res) => {
+    const email = await userModel.findOne({ email: req.body.email });
+
+    if (!email) {
+        return res.send({
+            message: "user not found",
+            data: null,
+            status: false
+        })
+    }
+
+    const matchPassword = await bcrypt.compare(req.body.password, email.password);
+
+    if (matchPassword) {
+        return res.send({
+            message: "Login successfully",
+            data: null,
+            status: true
+        })
+    }
+
+    return res.send({
+        message: "Invalid Password",
+        data: null,
+        status: false
+    })
+
+}
+
 module.exports = {
     signup,
     dataFetch,
-    detelteAll
+    detelteAll,
+    login
 }

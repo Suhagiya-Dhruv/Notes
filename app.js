@@ -11,7 +11,7 @@ mongoose.connect(url)
 
 const server = express();
 
-server.use(express.json()) // Middleware body read
+server.use(express.json()) // Middleware use for body read
 
 server.use("/user-register", userRegister)
 
