@@ -1,5 +1,6 @@
 const userModel = require("../model/userModel");
 const bcrypt = require("bcrypt");
+const jwt = require('jsonwebtoken');
 
 const signup = async (req, res) => {
     try {
@@ -87,9 +88,9 @@ const detelteAll = async (req, res) => {
 
 
 const login = async (req, res) => {
-    const email = await userModel.findOne({ email: req.body.email });
+    const data = await userModel.findOne({ email: req.body.email });
 
-    if (!email) {
+    if (!data) {
         return res.send({
             message: "user not found",
             data: null,
@@ -97,12 +98,15 @@ const login = async (req, res) => {
         })
     }
 
-    const matchPassword = await bcrypt.compare(req.body.password, email.password);
+    const matchPassword = await bcrypt.compare(req.body.password, data.password);
+
 
     if (matchPassword) {
+        const toeken = jwt.sign({ _id: data._id, name: data.name, email: data.email }, 'screct_key');
+
         return res.send({
             message: "Login successfully",
-            data: null,
+            data: toeken,
             status: true
         })
     }
