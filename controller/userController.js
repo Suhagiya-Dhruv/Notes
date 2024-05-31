@@ -100,7 +100,6 @@ const login = async (req, res) => {
 
     const matchPassword = await bcrypt.compare(req.body.password, data.password);
 
-
     if (matchPassword) {
         const toeken = jwt.sign({ _id: data._id, name: data.name, email: data.email }, 'screct_key');
 

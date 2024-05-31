@@ -26,6 +26,32 @@ async function tweetUpload(req, res) {
 
 }
 
+async function updateTweet(req, res) {
+    try {
+        const userId = req.user._id
+        const id = req.params.id
+
+        const updateData = await tweetModel.updateOne({ userId: userId, _id: id }, {
+            $set: {
+                description: req.body.description
+            }
+        })
+
+        res.send({
+            message: "Tweet updated successfully",
+            data: updateData,
+            status: true
+        })
+    } catch (err) {
+        res.send({
+            message: "Something went wrong",
+            data: null,
+            status: false
+        })
+    }
+}
+
 module.exports = {
-    tweetUpload
+    tweetUpload,
+    updateTweet
 }
